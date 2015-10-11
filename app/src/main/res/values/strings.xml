@@ -52,9 +52,9 @@
     <string name="api">http://daniu.io/</string>
 
     <string name="about">关于</string>
-    <string name="introduce">每天一张精选妹纸图、一个精选小视频（视频源地址播放），一篇程序猿精选干货，让你站在大牛的肩上，看的更远。(主页中点击妹纸打开妹纸大图，点击文字打开干货页面)\n\n数据内容来源于 http://daniu.io ， Android 端修改自 drakeet 的妹子应用，表示非常感谢。</string>
+    <string name="introduce">每天一张精选美妞图、一个精选小视频（视频源地址播放），一篇程序猿精选干货，让你站在大牛的肩上，看的更远。(主页中点击美妞打开美妞大图，点击文字打开干货页面)\n\n数据内容来源于 http://daniu.io ， Android 端修改自 drakeet 的美妞应用，表示非常感谢。</string>
     <string name="share">分享给朋友（谢谢QAQ）</string>
-    <string name="share_text">发现了一款非常美观的App「美妞&amp;daniu.io」，每天一张精选妹纸图、一个精选小视频（视频源地址播放），一篇程序猿干货，让你站在大牛的肩上，看的更远。应用完全开源不收费，太赞了! 推荐~：https://github.com/zddhub/Meiniu </string>
+    <string name="share_text">发现了一款非常美观的App「美妞&amp;daniu.io」，每天一张精选美妞图、一个精选小视频（视频源地址播放），一篇程序猿干货，让你站在大牛的肩上，看的更远。应用完全开源不收费，太赞了! 推荐~：https://github.com/zddhub/Meiniu </string>
     <string name="app_name_with_introduce">美妞&amp;daniu.io - 程序猿的梦</string>
     <string name="developers">开发人员</string>
     <string name="developer_contributor">Android Contributor</string>
@@ -63,7 +63,7 @@
     <string name="open_source_lis">用到的开源库（后续会补充协议）</string>
     <string name="introduce_and_help">介绍与帮助</string>
 
-    <string name="no_data_the_day">今天没有妹纸</string>
+    <string name="no_data_the_day">今天没有美妞</string>
     <string name="loading_num_of">正在加载：</string>
     <string name="headsup_title">daniu.io</string>
     <string name="headsup_content">今天的美妞已经准备好了，快来享用吧~</string>

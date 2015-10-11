@@ -12,6 +12,10 @@
 
 <img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
+### TODO
+
+[ ] 解决网站和 APP 的视频问题
+
 ### 特别感谢
 
 [drakeet](https://github.com/drakeet)

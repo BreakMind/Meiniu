@@ -21,7 +21,7 @@ ext {
 
     android = [compileSdkVersion: 22,
                buildToolsVersion: "22.0.1",
-               applicationId    : "me.drakeet.meizhi",
+               applicationId    : "me.drakeet.meiniu",
                minSdkVersion    : 14,
                targetSdkVersion : 22,
                versionCode      : 301,

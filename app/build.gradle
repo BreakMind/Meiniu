@@ -1,20 +1,20 @@
 /*
  * Copyright (C) 2015 Drakeet <drakeet.me@gmail.com>
  *
- * This file is part of Meizhi
+ * This file is part of Meiniu
  *
- * Meizhi is free software: you can redistribute it and/or modify
+ * Meiniu is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Meizhi is distributed in the hope that it will be useful,
+ * Meiniu is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Meiniu.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 apply plugin: 'com.android.application'
@@ -23,7 +23,7 @@ def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
-def keyStore = file('meizhi.keystore')
+def keyStore = file('Meiniu.keystore')
 
 android {
 
@@ -61,7 +61,7 @@ android {
 
     signingConfigs {
         app1 {
-            storeFile file('meizhi.keystore')
+            storeFile file('Meiniu.keystore')
             storePassword project.hasProperty('STOREPASS') ? STOREPASS : ''
             keyAlias project.hasProperty('KEYALIAS') ? KEYALIAS : ''
             keyPassword project.hasProperty('KEYPASS') ? KEYPASS : ''
@@ -78,18 +78,18 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (keyStore.exists()) {
-                println "Meizhi: using drakeet's key"
+                println "Meiniu: using drakeet's key"
                 signingConfig signingConfigs.app1
             } else {
-                println "Meizhi: using default key"
+                println "Meiniu: using default key"
             }
 
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     def outputFile = output.outputFile
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为Meizhi_v1.0_2015-01-15_wandoujia.apk
-                        def fileName = "Meizhi_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        // 输出apk名称为Meiniu_v1.0_2015-01-15_wandoujia.apk
+                        def fileName = "Meiniu_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
                         output.outputFile = new File(outputFile.parent, fileName)
                     }
                 }

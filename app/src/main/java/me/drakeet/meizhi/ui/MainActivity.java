@@ -105,7 +105,6 @@ public class MainActivity extends SwipeRefreshBaseActivity {
         UmengUpdateAgent.setUpdateOnlyWifi(false);
     }
 
-
     private void setUpRecyclerView() {
         final StaggeredGridLayoutManager layoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
