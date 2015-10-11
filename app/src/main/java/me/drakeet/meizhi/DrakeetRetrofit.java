@@ -45,7 +45,7 @@ public class DrakeetRetrofit {
         client.setReadTimeout(12, TimeUnit.SECONDS);
 
         RestAdapter restAdapter = new RestAdapter.Builder().setClient(new OkClient(client))
-                .setEndpoint("http://gank.avosapps.com/api")
+                .setEndpoint("http://daniu.io/api/v1")
                 .setConverter(new GsonConverter(gson))
                 .build();
         service = restAdapter.create(Drakeet.class);

@@ -25,8 +25,15 @@ package me.drakeet.meizhi.util;
 public class LoveStringUtils {
 
     public static String getVideoPreviewImageUrl(String resp) {
-        int s0 = resp.indexOf("<h1>休息视频</h1>");
-        if (s0 == -1) return null;
+        int s0 = resp.indexOf("<h1>今日视频</h1>");
+        if (s0 == -1) {
+            int s = resp.indexOf("<h1>搞笑视频</h1>");
+            if (s == -1) {
+                return null;
+            } else {
+                s0 = s;
+            }
+        }
         int s1 = resp.indexOf("<img", s0);
         if (s1 == -1) return null;
         int s2 = resp.indexOf("http:", s1);

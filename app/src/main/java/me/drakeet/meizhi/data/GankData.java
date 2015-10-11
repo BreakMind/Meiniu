@@ -34,11 +34,15 @@ public class GankData extends BaseData {
     public List<String> category;
 
     public class Result {
-        @SerializedName("Android") public List<Gank> androidList;
-        @SerializedName("休息视频") public List<Gank> 休息视频List;
-        @SerializedName("iOS") public List<Gank> iOSList;
-        @SerializedName("福利") public List<Gank> 妹纸List;
+        @SerializedName("Go") public List<Gank> goList;
+        @SerializedName("搞笑视频") public List<Gank> 搞笑视频List;
+        @SerializedName("今日视频") public List<Gank> 今日视频List;
+        @SerializedName("Swift") public List<Gank> swiftList;
+        @SerializedName("请您欣赏") public List<Gank> 妹纸List;
         @SerializedName("拓展资源") public List<Gank> 拓展资源List;
-        @SerializedName("瞎推荐") public List<Gank> 瞎推荐List;
+        @SerializedName("实用工具") public List<Gank> 实用工具List;
+        @SerializedName("牛人设计") public List<Gank> 牛人设计List;
+        @SerializedName("牛人轶事") public List<Gank> 牛人轶事List;
+        @SerializedName("网络安全") public List<Gank> 网络安全List;
     }
 }

@@ -170,11 +170,8 @@ public class GankFragment extends Fragment {
     private void loadVideoPreview() {
         OkHttpClient client = new OkHttpClient();
         String url =
-                "https://leancloud.cn:443/1.1/classes/Gank?where=%7B%22tag%22%3A%22" + mYear + "-"
-                        + mMonth + "-" + mDay + "%22%7D";
+                "http://daniu.io/" + String.format("%s/%s/%s", mYear, mMonth, mDay);
         Request request = new Request.Builder().url(url)
-                .addHeader("X-LC-Id", ApiKey.X_LC_Id)
-                .addHeader("X-LC-Key", ApiKey.X_LC_Key)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override public void onFailure(Request request, IOException e) {
@@ -184,13 +181,8 @@ public class GankFragment extends Fragment {
 
             @Override public void onResponse(Response response) throws IOException {
                 String body = response.body().string();
-                DGankData data = new Gson().fromJson(body, DGankData.class);
-                if (data.results.size() == 0) {
-                    getOldVideoPreview(client);
-                    return;
-                }
-                DGank gank = data.results.get(0);
-                startPreview(gank.preview);
+                mVideoPreviewUrl = LoveStringUtils.getVideoPreviewImageUrl(body);
+                startPreview(mVideoPreviewUrl);
             }
         });
     }
@@ -198,7 +190,7 @@ public class GankFragment extends Fragment {
 
     private void getOldVideoPreview(OkHttpClient client) {
         String url =
-                "http://gank.io/" + String.format("%s/%s/%s", mYear, mMonth, mDay);
+                "http://daniu.io/" + String.format("%s/%s/%s", mYear, mMonth, mDay);
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
             @Override public void onFailure(Request request, IOException e) {
@@ -229,11 +221,15 @@ public class GankFragment extends Fragment {
 
 
     private List<Gank> addAllResults(GankData.Result results) {
-        if (results.androidList != null) mGankList.addAll(results.androidList);
-        if (results.iOSList != null) mGankList.addAll(results.iOSList);
+        if (results.goList != null) mGankList.addAll(results.goList);
+        if (results.swiftList != null) mGankList.addAll(results.swiftList);
         if (results.拓展资源List != null) mGankList.addAll(results.拓展资源List);
-        if (results.瞎推荐List != null) mGankList.addAll(results.瞎推荐List);
-        if (results.休息视频List != null) mGankList.addAll(0, results.休息视频List);
+        if (results.实用工具List != null) mGankList.addAll(results.实用工具List);
+        if (results.牛人设计List != null) mGankList.addAll(results.牛人设计List);
+        if (results.牛人轶事List != null) mGankList.addAll(results.牛人轶事List);
+        if (results.网络安全List != null) mGankList.addAll(results.网络安全List);
+        if (results.搞笑视频List != null) mGankList.addAll(0, results.搞笑视频List);
+        if (results.今日视频List != null) mGankList.addAll(0, results.今日视频List);
         return mGankList;
     }
 
@@ -241,7 +237,7 @@ public class GankFragment extends Fragment {
     @OnClick(R.id.header_appbar) void onPlayVideo() {
         resumeVideoView();
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        if (mGankList.size() > 0 && mGankList.get(0).type.equals("休息视频")) {
+        if (mGankList.size() > 0 && (mGankList.get(0).type.equals("搞笑视频") || mGankList.get(0).type.equals("今日视频"))) {
             ToastUtils.showLongLong(R.string.loading);
         }
         else {
@@ -265,8 +261,9 @@ public class GankFragment extends Fragment {
                                     .setAction(R.string.i_know, v -> {})
                                     .show());
                 }
-                if (mGankList.size() > 0 && mGankList.get(0).type.equals("休息视频")) {
+                if (mGankList.size() > 0 && (mGankList.get(0).type.equals("今日视频") || mGankList.get(0).type.equals("搞笑视频"))) {
                     mVideoView.loadUrl(mGankList.get(0).url);
+                    ToastUtils.showLongLong(mGankList.get(0).url);
                 }
                 break;
             }

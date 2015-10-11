@@ -33,20 +33,21 @@ import rx.Observable;
  */
 public interface Drakeet {
 
-    @GET("/data/福利/" + DrakeetFactory.meizhiSize + "/{page}") Observable<MeizhiData> getMeizhiData(
+//    @GET("/data/请您欣赏/1/" + DrakeetFactory.meizhiSize) Observable<MeizhiData> getMeizhiData();
+    @GET("/data/请您欣赏/{page}/" + DrakeetFactory.meizhiSize) Observable<MeizhiData> getMeizhiData(
             @Path("page") int page);
 
     @GET("/day/{year}/{month}/{day}") Observable<GankData> getGankData(@Path("year") int year,
             @Path("month") int month, @Path("day") int day);
 
-    @GET("/data/休息视频/" + DrakeetFactory.meizhiSize + "/{page}") Observable<休息视频Data> get休息视频Data(
+    @GET("/data/搞笑视频/{page}/" + DrakeetFactory.meizhiSize) Observable<休息视频Data> get休息视频Data(
             @Path("page") int page);
 
     @Headers({
-            "X-LC-Id: 0azfScvBLCC9tAGRAwIhcC40", "X-LC-Key: gAuE93qAusvP8gk1VW8DtOUb",
+//            "X-LC-Id: 0azfScvBLCC9tAGRAwIhcC40", "X-LC-Key: gAuE93qAusvP8gk1VW8DtOUb",
             "Content-Type: application/json"
     })
-    @GET("https://leancloud.cn:443/1.1/classes/Gank?where=%7B%22tag%22%3A%22{year}-{month}-{day}%22%7D&limit=1")
+    @GET("/day/{year}/{month}/{day}")
     Observable<DGankData> getDGankData(@Path("year") int year, @Path("month") int month,
             @Path("day") int day);
 }

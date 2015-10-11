@@ -32,7 +32,7 @@ import java.util.Date;
     @Column("type") public String type;
     @Column("desc") public String desc;
     @Column("who") public String who;
-    @Column("used") public boolean used;
+//    @Column("used") public boolean used;
     @Column("createdAt") public Date createdAt;
     @Column("updatedAt") public Date updatedAt;
 }

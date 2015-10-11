@@ -28,7 +28,7 @@ import com.litesuits.orm.LiteOrm;
  */
 public class App extends Application {
 
-    private static final String DB_NAME = "gank.db";
+    private static final String DB_NAME = "daniu.db";
     public static Context sContext;
     public static LiteOrm sDb;
 

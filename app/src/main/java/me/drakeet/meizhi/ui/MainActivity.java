@@ -159,7 +159,9 @@ public class MainActivity extends SwipeRefreshBaseActivity {
     private MeizhiData createMeizhiDataWith休息视频Desc(MeizhiData mzData, 休息视频Data love) {
         for (int i = 0; i < mzData.results.size(); i++) {
             Meizhi m = mzData.results.get(i);
-            m.desc = m.desc + " " + love.results.get(i).desc;
+            m.desc = m.desc;
+            if (love.results.size() > i)
+                m.desc += " " + love.results.get(i).desc;
         }
         return mzData;
     }
