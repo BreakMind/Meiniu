@@ -49,7 +49,7 @@
                     android:layout_width="96dp"
                     android:layout_height="96dp"
                     android:layout_marginTop="24dp"
-                    android:src="@mipmap/ic_meizhi_150602"/>
+                    android:src="@mipmap/ic_daniu_io"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,9 +136,37 @@
                 android:background="@drawable/bg_card_nopic">
 
                 <ImageView
+                    android:id="@+id/ig_avatar_zddhub"
+                    android:layout_width="@dimen/avatar_size"
+                    android:layout_height="@dimen/avatar_size"
+                    android:layout_margin="16dp"
+                    android:src="@mipmap/avatar_zddhub"/>
+
+                <TextView
+                    android:id="@+id/tv_zddhub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/ig_avatar_zddhub"
+                    android:layout_toEndOf="@id/ig_avatar_zddhub"
+                    android:layout_toRightOf="@id/ig_avatar_zddhub"
+                    android:text="zddhub"
+                    android:textColor="@color/md_grey_800"
+                    tools:ignore="HardcodedText"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_zddhub"
+                    android:paddingBottom="16dp"
+                    android:layout_toRightOf="@id/ig_avatar_zddhub"
+                    android:text="@string/developer_service"
+                    android:textColor="@color/md_grey_600"/>
+
+                <ImageView
                     android:id="@+id/ig_avatar_drakeet"
                     android:layout_width="@dimen/avatar_size"
                     android:layout_height="@dimen/avatar_size"
+                    android:layout_below="@id/ig_avatar_zddhub"
                     android:layout_margin="16dp"
                     android:src="@mipmap/avatar_drakeet"/>
 
@@ -162,33 +190,6 @@
                     android:text="@string/developer_and_designer"
                     android:textColor="@color/md_grey_600"/>
 
-                <ImageView
-                    android:id="@+id/ig_avatar_daimajia"
-                    android:layout_width="@dimen/avatar_size"
-                    android:layout_height="@dimen/avatar_size"
-                    android:layout_below="@id/ig_avatar_drakeet"
-                    android:layout_margin="16dp"
-                    android:src="@mipmap/avatar_daimajia"/>
-
-                <TextView
-                    android:id="@+id/tv_daimajia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/ig_avatar_daimajia"
-                    android:layout_toEndOf="@id/ig_avatar_daimajia"
-                    android:layout_toRightOf="@id/ig_avatar_daimajia"
-                    android:text="daimajia"
-                    android:textColor="@color/md_grey_800"
-                    tools:ignore="HardcodedText"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_daimajia"
-                    android:paddingBottom="16dp"
-                    android:layout_toRightOf="@id/ig_avatar_daimajia"
-                    android:text="@string/developer_service"
-                    android:textColor="@color/md_grey_600"/>
 
             </RelativeLayout>
 

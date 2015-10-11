@@ -263,7 +263,6 @@ public class GankFragment extends Fragment {
                 }
                 if (mGankList.size() > 0 && (mGankList.get(0).type.equals("今日视频") || mGankList.get(0).type.equals("搞笑视频"))) {
                     mVideoView.loadUrl(mGankList.get(0).url);
-                    ToastUtils.showLongLong(mGankList.get(0).url);
                 }
                 break;
             }
