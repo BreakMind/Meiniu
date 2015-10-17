@@ -27,6 +27,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -141,9 +142,6 @@ public class GankFragment extends Fragment {
     @Override public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (mGankList.size() == 0) loadData();
-        if (mVideoPreviewUrl != null) {
-            Glide.with(this).load(mVideoPreviewUrl).into(mVideoImageView);
-        }
     }
 
 
@@ -155,7 +153,6 @@ public class GankFragment extends Fragment {
 
 
     private void loadData() {
-        loadVideoPreview();
         mSubscription = BaseActivity.sDrakeet.getGankData(mYear, mMonth, mDay)
                 .map(data -> data.results)
                 .map(this::addAllResults)
@@ -168,44 +165,19 @@ public class GankFragment extends Fragment {
 
 
     private void loadVideoPreview() {
-        OkHttpClient client = new OkHttpClient();
-        String url =
-                getString(R.string.url_gank_io) + String.format("%s/%s/%s", mYear, mMonth, mDay);
-        Request request = new Request.Builder().url(url)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override public void onFailure(Request request, IOException e) {
-                e.printStackTrace();
+        if (mGankList.size() > 0 && mGankList.get(0).url != null) {
+            String url = mGankList.get(0).url;
+            if (url.startsWith("http://v.youku.com/")) {
+                String id = url.substring(url.indexOf("id_")+3, url.indexOf(".html"));
+                mVideoPreviewUrl = "http://events.youku.com/global/api/video-thumb.php?vid=" + id;
             }
-
-
-            @Override public void onResponse(Response response) throws IOException {
-                String body = response.body().string();
-                mVideoPreviewUrl = LoveStringUtils.getVideoPreviewImageUrl(body);
-                startPreview(mVideoPreviewUrl);
-            }
-        });
+        }
+        if (mVideoPreviewUrl != null) {
+            mVideoImageView.post(() -> Glide.with(mVideoImageView.getContext())
+                    .load(mVideoPreviewUrl)
+                    .into(mVideoImageView));
+        }
     }
-
-
-    private void getOldVideoPreview(OkHttpClient client) {
-        String url =
-                getString(R.string.url_gank_io) + String.format("%s/%s/%s", mYear, mMonth, mDay);
-        Request request = new Request.Builder().url(url).build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override public void onFailure(Request request, IOException e) {
-                ToastUtils.showShort(e.getMessage());
-            }
-
-
-            @Override public void onResponse(Response response) throws IOException {
-                String body = response.body().string();
-                mVideoPreviewUrl = LoveStringUtils.getVideoPreviewImageUrl(body);
-                startPreview(mVideoPreviewUrl);
-            }
-        });
-    }
-
 
     private void startPreview(String preview) {
         mVideoPreviewUrl = preview;
@@ -230,6 +202,9 @@ public class GankFragment extends Fragment {
         if (results.网络安全List != null) mGankList.addAll(results.网络安全List);
         if (results.搞笑视频List != null) mGankList.addAll(0, results.搞笑视频List);
         if (results.今日视频List != null) mGankList.addAll(0, results.今日视频List);
+
+        loadVideoPreview();
+
         return mGankList;
     }
 
