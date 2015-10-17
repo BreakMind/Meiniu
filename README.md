@@ -6,11 +6,17 @@
 
 10月11日无聊, fork 了一份 drakeet 的妹纸应用，替换数据源后，便成了现在的美妞应用。
 
+### Demo
+
+![daniu.io demo](/screenshots/daniu.gif)
+
 ### 截图
 
-<img src="/screenshots/s0.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s1.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/s0.jpg" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s1.jpg" alt="screenshot" title="screenshot" width="270" height="486" />
 
-<img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/s2.jpg" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s3.jpg" alt="screenshot" title="screenshot" width="270" height="486" />
+
+<img src="/screenshots/s4.jpg" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s5.jpg" alt="screenshot" title="screenshot" width="270" height="486" />
 
 ### TODO
 
