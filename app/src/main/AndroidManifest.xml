@@ -18,7 +18,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.drakeet.meizhi">
+    package="me.drakeet.meiniu">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -60,8 +60,8 @@
             android:launchMode="singleTask"/>
 
         <activity
-            android:name=".ui.GankActivity"
-            android:label="@string/title_activity_gank"
+            android:name=".ui.DaniuActivity"
+            android:label="@string/title_activity_daniu"
             android:hardwareAccelerated="true"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
@@ -77,7 +77,7 @@
 
         <receiver android:name=".service.AlarmReceiver">
             <intent-filter>
-                <action android:name="me.drakeet.meizhi.alarm"/>
+                <action android:name="me.drakeet.meiniu.alarm"/>
             </intent-filter>
         </receiver>
 
@@ -95,7 +95,7 @@
             android:value="${UMENG_CHANNEL_VALUE}"/>
         <meta-data
             android:name="AA_DB_NAME"
-            android:value="gank.db"/>
+            android:value="daniu.db"/>
         <meta-data
             android:name="AA_DB_VERSION"
             android:value="1"/>
