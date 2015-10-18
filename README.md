@@ -22,7 +22,7 @@
 
 点击[这里](http://fir.im/dfa7)或扫描以下二维码下载应用：
 
-![download qr](/download.jpg)
+<img src="/download.jpg" alt="screenshot" title="screenshot" width="100" height="100" />
 
 
 ### 特别感谢
