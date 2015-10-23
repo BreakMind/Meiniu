@@ -34,7 +34,7 @@ import me.drakeet.meiniu.R;
 public abstract class SwipeRefreshBaseActivity extends ToolbarActivity {
 
     @Bind(R.id.swipe_refresh_layout) public MultiSwipeRefreshLayout mSwipeRefreshLayout;
-
+    private boolean mIsRequestDataRefresh = false;
 
     @Override public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
@@ -62,14 +62,20 @@ public abstract class SwipeRefreshBaseActivity extends ToolbarActivity {
     }
 
 
-    public void requestDataRefresh() {}
+    public void requestDataRefresh() {
+        mIsRequestDataRefresh = true;
+    }
 
+    public boolean isRequestDataRefresh() {
+        return mIsRequestDataRefresh;
+    }
 
-    public void setRefreshing(boolean refreshing) {
+    public void setRequestDataRefresh(boolean requestDataRefresh) {
         if (mSwipeRefreshLayout == null) {
             return;
         }
-        if (!refreshing) {
+        if (!requestDataRefresh) {
+            mIsRequestDataRefresh = false;
             // 防止刷新消失太快，让子弹飞一会儿.
             mSwipeRefreshLayout.postDelayed(new Runnable() {
                 @Override public void run() {
