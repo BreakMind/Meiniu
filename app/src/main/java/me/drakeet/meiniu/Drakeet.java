@@ -39,7 +39,7 @@ public interface Drakeet {
     @GET("/day/{year}/{month}/{day}") Observable<DaniuData> getGankData(@Path("year") int year,
             @Path("month") int month, @Path("day") int day);
 
-    @GET("/data/搞笑视频/{page}/" + DrakeetFactory.meizhiSize) Observable<休息视频Data> get休息视频Data(
+    @GET("/data/休息视频/{page}/" + DrakeetFactory.meizhiSize) Observable<休息视频Data> get休息视频Data(
             @Path("page") int page);
 
     @Headers({
