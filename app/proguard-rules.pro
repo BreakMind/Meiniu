@@ -46,13 +46,13 @@
     public *;
 }
 
--keep public class me.drakeet.meizhi.R$*{
+-keep public class me.drakeet.meiniu.R$*{
 		public static final int *;
 }
 
 -keep public class com.umeng.fb.ui.ThreadView {}
 
--keep class me.drakeet.meizhi.BuildConfig { *; }
+-keep class me.drakeet.meiniu.BuildConfig { *; }
 -keep public class * extends android.os.Binder
 
 # Keep the support library
@@ -86,7 +86,7 @@
     native <methods>;
 }
 
--keep class me.drakeet.meizhi.** { *;}
+-keep class me.drakeet.meiniu.** { *;}
 
 -keepclasseswithmembernames class * {
     native <methods>;

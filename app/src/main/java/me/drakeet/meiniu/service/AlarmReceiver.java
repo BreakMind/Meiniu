@@ -34,7 +34,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override public void onReceive(Context context, Intent intent) {
         HeadsUpUtils.show(context, MainActivity.class, context.getString(R.string.headsup_title),
-                context.getString(R.string.headsup_content), R.mipmap.ic_meizhi_150602,
+                context.getString(R.string.headsup_content), R.mipmap.ic_daniu_io,
                 R.mipmap.ic_female, 123123);
     }
 }

@@ -78,7 +78,7 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             if (keyStore.exists()) {
-                println "Meiniu: using drakeet's key"
+                println "Meiniu: using zddhub's key"
                 signingConfig signingConfigs.app1
             } else {
                 println "Meiniu: using default key"
